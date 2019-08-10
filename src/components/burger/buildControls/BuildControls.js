@@ -18,6 +18,7 @@ const BuildControls = (props) => (
                     label={ctrl.label} 
                     addIngredientClick={()=>props.addIngredientClick(ctrl.type)}
                     removeIngredientClick={()=>props.removeIngredientClick(ctrl.type)}
+                    disabled={props.disabled[ctrl.type]}
                 />
             );
         })}
