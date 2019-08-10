@@ -14,14 +14,25 @@ class BurgerBuilder extends Component {
             meat: 0,
             cheese: 0
         },
-        totalPrice: 4
+        totalPrice: 4,
+        purchaseable: false
     }
 
-    updateState = (updatedIngredients, newPrice) => {
+    updateIngredientsState = (updatedIngredients, newPrice) => {
         this.setState({
             ingredients: updatedIngredients,
             totalPrice: newPrice
         });
+        this.updatedPurchaseState(updatedIngredients);
+    }
+
+    updatedPurchaseState = (updatedIngredients) => {
+        const sum = Object.keys(updatedIngredients).map(ingKey => {
+            return updatedIngredients[ingKey];
+        }).reduce((sum, elem) => {
+            return sum+elem;
+        }, 0);
+        this.setState({ purchaseable: sum > 0 });
     }
 
     disabledIngredients = () => {
@@ -36,7 +47,7 @@ class BurgerBuilder extends Component {
         const updatedIngredients = Object.assign({}, this.state.ingredients);
         updatedIngredients[type] = this.state.ingredients[type]+1;
         const newPrice = this.state.totalPrice + INGREDIENT_PRICES[type];
-        this.updateState(updatedIngredients, newPrice);
+        this.updateIngredientsState(updatedIngredients, newPrice);
     }
 
     removeIngredientHandler = (type) => {
@@ -44,7 +55,7 @@ class BurgerBuilder extends Component {
         const updatedIngredients = Object.assign({}, this.state.ingredients);
         updatedIngredients[type] = this.state.ingredients[type]-1;
         const newPrice = this.state.totalPrice - INGREDIENT_PRICES[type];
-        this.updateState(updatedIngredients, newPrice);
+        this.updateIngredientsState(updatedIngredients, newPrice);
     }
 
     render(){
@@ -54,6 +65,7 @@ class BurgerBuilder extends Component {
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls 
                     price={this.state.totalPrice}
+                    purchaseable={this.state.purchaseable}
                     addIngredientClick={this.addIngredientHandler} 
                     removeIngredientClick={this.removeIngredientHandler}
                     disabled={disabled}
