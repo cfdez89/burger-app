@@ -9,11 +9,19 @@ import {
 } from './burgerIngredient/ingredientType';
 
 const Burger = (props) => {
+    let transformedIngredients = Object.keys(props.ingredients).map(ingKey => {
+        return [...Array(props.ingredients[ingKey])].map((_, i) => { 
+            return <BurgerIngredient key={ingKey+i} type={ingKey}/>;
+        })
+    }).flat();
+
+    if(transformedIngredients.length === 0) {
+        transformedIngredients = <p> Please start adding ingredients </p>;
+    }
     return (
         <div className="burger">
             <BurgerIngredient type={BREAD_TOP}/>
-            <BurgerIngredient type={CHEESE}/>
-            <BurgerIngredient type={MEAT}/>
+            { transformedIngredients }
             <BurgerIngredient type={BREAD_BOTTOM}/>
         </div>
     );
