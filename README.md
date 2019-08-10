@@ -17,7 +17,7 @@ It is based on the course: https://www.udemy.com/react-the-complete-guide-incl-r
    npm install
    ```
 
-1. Run the app!
+2. Run the app
 
    ```bash
    npm start
