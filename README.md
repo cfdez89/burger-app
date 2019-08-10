@@ -1,8 +1,6 @@
 # burger-app
 This project was created to learn the basics of React.
-It is based on the course https://www.udemy.com/react-the-complete-guide-incl-redux/
-
-by [Carlos Fdez]
+It is based on the course: https://www.udemy.com/react-the-complete-guide-incl-redux/ .
 
 ## Getting Started
 
