@@ -56,8 +56,8 @@ class BurgerBuilder extends Component {
     removeIngredientHandler = (type) => {
         if(this.state.ingredients[type] <= 0) return;
         const updatedIngredients = Object.assign({}, this.state.ingredients);
-        updatedIngredients[type] = this.state.ingredients[type]-1;
-        const newPrice = this.state.totalPrice - INGREDIENT_PRICES[type];
+        updatedIngredients[type] = Math.abs(this.state.ingredients[type]-1);
+        const newPrice = Math.abs(this.state.totalPrice - INGREDIENT_PRICES[type]);
         this.updateIngredientsState(updatedIngredients, newPrice);
     }
 

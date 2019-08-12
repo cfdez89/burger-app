@@ -1,6 +1,6 @@
 
 .main {
-    margin-top: 16px;
+    margin-top: 72px;
 }
 
 .bread-bottom {
@@ -276,6 +276,74 @@
 .danger {
     color: #944317;
 }
+
+
+.toolbar {
+    height: 56px;
+    width: 100%;
+    position: 'fixed';
+    top: 0;
+    left: 0;
+    background-color: #703B09;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
+}
+
+.toolbar nav{
+    height: 100%;
+}
+
+.logo {
+    background-color: white;
+    padding: 8px;
+    height: 80%;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.logo img{
+    height: 100%;
+}
+
+.navigation-items {
+    margin: 0;
+    padding:0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navigation-item {
+    margin: 0;
+    display: flex;
+    height: 100%;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.navigation-item a {
+    color: white;
+    text-decoration: none;
+    height: 100%;
+    padding: 16px 10px;
+    border-bottom: 4px solid transparent;
+    box-sizing: border-box;
+    display: block;
+}
+
+.navigation-item a:hover,
+.navigation-item a:active
+.navigation-item a:active {
+    background-color: #8F5C2C;
+    border-bottom: 4px solid #40A4C8;
+    color: white;
+}
+
 
 @media (min-width: 600px) {
     .modal {
